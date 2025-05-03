@@ -1,0 +1,29 @@
+/* Custom styles for Greens Fresh Market */
+.nav-underline-js {
+  position: relative;
+  overflow: hidden;
+}
+.nav-underline-js::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2.5px;
+  background: linear-gradient(90deg, #00FF23 0%, #00b82e 100%);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), background 0.2s;
+}
+.nav-underline-js.underline-animate::after {
+  transform: scaleX(1);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.header-bg-scroll {
+  background-image: url('images/BG.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0,40,0,0.85);
+} 
