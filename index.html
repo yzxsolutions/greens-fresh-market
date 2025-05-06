@@ -10,7 +10,8 @@
 </head>
 <body class="min-h-screen bg-cover bg-center font-sans overflow-x-hidden relative" style="background-image: url('images/BG.png')">
   <!-- <div class="absolute inset-0 bg-[#002800b3] z-0"></div> -->
-  <header id="main-header" class="w-full h-24 static flex justify-center transition-all duration-300 bg-transparent" style="background:none;">
+  <!-- Header - Hidden on Mobile -->
+  <header id="main-header" class="w-full h-24 hidden md:flex justify-center transition-all duration-300 bg-transparent" style="background:none;">
     <div class="w-full max-w-6xl flex items-center justify-between px-4 md:px-8 h-full">
       <div class="flex flex-1 items-center min-w-0">
         <img src="images/Frame 427319766.svg" alt="Logo" class="logo js h-16 md:h-24 w-auto cursor-move" style="user-select:none;" />
@@ -31,10 +32,14 @@
       </div>
     </div>
   </header>
-  <main class="relative z-10 flex flex-col items-center justify-center min-h-screen pt-24 md:pt-24">
-    <div class="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-12 w-full max-w-6xl">
+  <main class="relative z-10 flex flex-col items-center justify-center min-h-screen pt-12 md:pt-24">
+    <!-- Mobile Logo - Only visible on mobile -->
+    <div class="md:hidden w-full flex justify-center">
+      <img src="images/Frame 427319766.svg" alt="Logo" class="h-36  w-auto" />
+    </div>
+    <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 w-full max-w-6xl px-4">
       <!-- Left Card -->
-      <div class="draggable-card card-animate group relative flex flex-col items-center justify-start w-[90vw] max-w-[345px] h-[420px] md:w-[345px] md:h-[436px] rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl" style="background-image: url('images/fruitsveg.png'); background-size: cover; background-position: center bottom;">
+      <div class="draggable-card card-animate group relative flex flex-col items-center justify-start w-full max-w-[345px] h-[380px] md:h-[436px] rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl" style="background-image: url('images/fruitsveg.png'); background-size: cover; background-position: center bottom;">
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent"></div>
         <div class="relative z-10 flex flex-col items-center w-full h-full justify-start p-8 pt-10">
           <div class="text-white text-sm font-semibold uppercase tracking-wider mb-2">Best Deals</div>
@@ -44,7 +49,7 @@
        
       </div>
       <!-- Center Card -->
-      <div class="draggable-card card-animate group relative flex flex-col items-center justify-start w-[95vw] max-w-[424px] h-[480px] md:w-[424px] md:h-[536px] rounded-2xl overflow-hidden shadow-2xl scale-105 md:scale-110 z-20 transition-transform duration-300 ease-out" style="background-image: url('images/frozen.png'); background-size: cover; background-position: center bottom;">
+      <div class="draggable-card card-animate group relative flex flex-col items-center justify-start w-full max-w-[424px] h-[420px] md:h-[536px] rounded-2xl overflow-hidden shadow-2xl scale-105 md:scale-110 z-20 transition-transform duration-300 ease-out" style="background-image: url('images/frozen.png'); background-size: cover; background-position: center bottom;">
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-transparent"></div>
         <div class="relative z-10 flex flex-col items-center w-full h-full justify-start p-8 pt-10">
           <div class="text-gray-200 text-xs font-semibold uppercase tracking-wider mb-2">85% Fat Free</div>
@@ -54,7 +59,7 @@
        
       </div>
       <!-- Right Card -->
-      <div class="draggable-card card-animate group relative flex flex-col items-center justify-start w-[90vw] max-w-[345px] h-[420px] md:w-[345px] md:h-[436px] rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl" style="background-image: url('images/fruitsyellow.png'); background-size: cover; background-position: center bottom;">
+      <div class="draggable-card card-animate group relative flex flex-col items-center justify-start w-full max-w-[345px] h-[380px] md:h-[436px] rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 ease-out hover:scale-105 hover:shadow-2xl" style="background-image: url('images/fruitsyellow.png'); background-size: cover; background-position: center bottom;">
         <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-transparent"></div>
         <div class="relative z-10 flex flex-col items-center w-full h-full justify-start p-8 pt-10">
           <div class="text-yellow-900 text-sm font-semibold uppercase tracking-wider mb-2">Summer Sale</div>
@@ -229,12 +234,39 @@
       <div class="text-[#bdbdbd] text-center text-sm">Ecobazar eCommerce © 2021. All Rights Reserved</div>
     </footer>
   </main>
-  <!-- Mobile nav -->
-  <nav class="fixed bottom-0 left-0 w-full bg-[#002800e6] flex md:hidden justify-around items-center h-14 z-30 border-t border-[#00FF23]/10">
-    <a href="#" class="nav-underline-js text-white text-base font-semibold relative">Home</a>
-        <a href="#about_section" class="nav-underline-js text-white text-base font-semibold relative">About</a>
-        <a href="#category_section" class="nav-underline-js text-white text-base font-semibold relative">Categories</a>
-        <a href="#contact_section" class="nav-underline-js text-white text-base font-semibold relative">Contact</a>
+  <!-- Mobile Navigation - Modern and Beautiful Design -->
+  <nav class="fixed bottom-0 left-0 w-full flex md:hidden justify-around items-center h-20 z-30">
+    <!-- Background with blur and gradient -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#002800] to-[#002800]/80 backdrop-blur-lg"></div>
+    <!-- Navigation Items -->
+    <a href="#" class="relative flex flex-col items-center justify-center text-white/80 hover:text-white transition-all duration-300 group py-2 px-4">
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#00FF23] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+      <svg class="w-6 h-6 mb-1 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+      </svg>
+      <span class="text-xs font-medium group-hover:translate-y-0.5 transition-transform duration-300">Home</span>
+    </a>
+    <a href="#about_section" class="relative flex flex-col items-center justify-center text-white/80 hover:text-white transition-all duration-300 group py-2 px-4">
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#00FF23] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+      <svg class="w-6 h-6 mb-1 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+      </svg>
+      <span class="text-xs font-medium group-hover:translate-y-0.5 transition-transform duration-300">About</span>
+    </a>
+    <a href="#category_section" class="relative flex flex-col items-center justify-center text-white/80 hover:text-white transition-all duration-300 group py-2 px-4">
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#00FF23] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+      <svg class="w-6 h-6 mb-1 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <span class="text-xs font-medium group-hover:translate-y-0.5 transition-transform duration-300">Categories</span>
+    </a>
+    <a href="#contact_section" class="relative flex flex-col items-center justify-center text-white/80 hover:text-white transition-all duration-300 group py-2 px-4">
+      <div class="absolute -top-1 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#00FF23] rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+      <svg class="w-6 h-6 mb-1 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+      </svg>
+      <span class="text-xs font-medium group-hover:translate-y-0.5 transition-transform duration-300">Contact</span>
+    </a>
   </nav>
   
   <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
