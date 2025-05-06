@@ -11,6 +11,24 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="min-h-screen bg-cover bg-center font-sans overflow-x-hidden relative" style="background-image: url('images/BG.png')">
+  <!-- Splash Screen -->
+  <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center bg-cover bg-center" style="background-image: url('images/BG.png');">
+    <div id="splash-logo-container" class="flex items-center justify-center">
+      <img src="images/Frame 427319766.svg" alt="Shop Logo" id="splash-logo" class="w-32 h-32 md:w-48 md:h-48 opacity-0 scale-75" />
+    </div>
+    <style>
+      #splash-screen {
+        transition: opacity 0.8s cubic-bezier(.4,0,.2,1);
+      }
+      #splash-logo {
+        transition: opacity 1s cubic-bezier(.4,0,.2,1), transform 1s cubic-bezier(.4,0,.2,1);
+      }
+      #splash-screen.splash-hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </div>
   <!-- <div class="absolute inset-0 bg-[#002800b3] z-0"></div> -->
   <!-- Header - Hidden on Mobile -->
   <header id="main-header" class="w-full h-24 hidden md:flex justify-center transition-all duration-300 bg-transparent" style="background:none;">
@@ -34,7 +52,7 @@
       </div>
     </div>
   </header>
-  <main class="relative z-10 flex flex-col items-center justify-center min-h-screen pt-12 md:pt-24">
+  <main class="relative z-10 flex flex-col items-center justify-center min-h-screen ">
     <!-- Mobile Logo - Only visible on mobile -->
     <div class="md:hidden w-full flex justify-center">
       <img src="images/Frame 427319766.svg" alt="Logo" class="h-36  w-auto" />
@@ -276,5 +294,22 @@
   </nav>
   
   <script src="script.js"></script>
+  <script>
+    // Splash screen animation
+    window.addEventListener('DOMContentLoaded', function() {
+      const logo = document.getElementById('splash-logo');
+      setTimeout(() => {
+        logo.style.opacity = '1';
+        logo.style.transform = 'scale(1)';
+      }, 200);
+      setTimeout(() => {
+        document.getElementById('splash-screen').classList.add('splash-hide');
+      }, 1800);
+      setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        if (splash) splash.remove();
+      }, 2600);
+    });
+  </script>
 </body>
 </html> 
