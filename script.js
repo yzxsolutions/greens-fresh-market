@@ -45,28 +45,6 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.card-animate').forEach(card => {
   observer.observe(card);
 });
-// Make cards draggable with interact.js
-interact('.draggable-card').draggable({
-  inertia: true,
-  modifiers: [
-    interact.modifiers.restrictRect({
-      restriction: 'parent',
-      endOnly: true
-    })
-  ],
-  listeners: {
-    move (event) {
-      const target = event.target;
-      const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
-      const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
-      // Remove any previous translate, then add new
-      let baseTransform = target.style.transform.replace(/translate\([^)]+\)/, '');
-      target.style.transform = `${baseTransform} translate(${x}px, ${y}px)`;
-      target.setAttribute('data-x', x);
-      target.setAttribute('data-y', y);
-    }
-  }
-});
 const abouts = [
   `Established in 2014 by Mr. Shareef V.K. in the vibrant city of Bangalore, Greens Fresh Market has grown into a trusted name for everyday essentials. What began as a local initiative to provide fresh and affordable groceries has now become a preferred destination for thousands of customers who seek quality, convenience, and reliability under one roof.`,
   `At Greens Fresh Market, we specialize in providing a wide range of daily necessities—including fresh fruits, vegetables, grains, pulses, packaged foods, dairy products, beverages, personal care items, cleaning supplies, and much more. Every item is carefully selected to meet the needs of our diverse customer base, ensuring freshness, affordability, and value in every purchase.`,
