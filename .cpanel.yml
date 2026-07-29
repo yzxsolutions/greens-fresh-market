@@ -1,0 +1,9 @@
+---
+# GoDaddy cPanel auto-deploy (runs on git push via webhook)
+# Replace YOUR_CPANEL_USERNAME with your actual cPanel username
+# Find it in GoDaddy → Hosting → Manage → cPanel (shown in the URL or sidebar)
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/YOUR_CPANEL_USERNAME/public_html/
+    - /bin/cp -R index.html style.css script.js .htaccess $DEPLOYPATH
+    - /bin/cp -R images $DEPLOYPATH

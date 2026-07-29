@@ -1,0 +1,21 @@
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect non-www to www (matches meta tags: www.greensfreshmarket.com)
+RewriteCond %{HTTP_HOST} ^greensfreshmarket\.com$ [NC]
+RewriteRule ^ https://www.greensfreshmarket.com%{REQUEST_URI} [L,R=301]
+
+# Serve index.html for root requests
+DirectoryIndex index.html
+
+# Cache static assets for faster repeat visits
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
